@@ -303,7 +303,7 @@ h2.section-title {
 	text-align: center;
 	text-transform: uppercase;
 }
-#pastoral {
+#grace {
 	background: none repeat scroll 0 0 #fff;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 	padding: 6em 2em;
@@ -315,12 +315,12 @@ h2.section-title {
 	margin-top: 1.25em;
 	padding: 1.25em 0;
 }
-.pastoral-container {
+.grace-container {
 	display: block;
 	height: 100%;
 	position: relative;
 }
-.pastoral-text {
+.grace-text {
 	background: #00283a none repeat scroll 0 0;
 	bottom: 0;
 	display: block;
@@ -337,15 +337,15 @@ h2.section-title {
 	-webkit-transition: opacity 0.20s linear 0s;
 	width: 100%;
 }
-.pastoral-container:hover > .pastoral-text {
+.grace-container:hover > .grace-text {
 	opacity: 1;
 }
-.pastoral-text h4 {
+.grace-text h4 {
 	color: #fff;
 	font-size: 1em;
 	font-weight: 600;
 }
-.pastoral-text p {
+.grace-text p {
 	color: #fff;
 	font-size: 0.8em;
 	opacity: 0.7;
