@@ -1,2 +1,2 @@
-web: gunicorn GraceCloudERP.wsgi --log-file -
+web: gunicorn grace.wsgi --log-file -
 
