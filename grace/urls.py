@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from grace.core import views as grace_views
+from grace.core.views import home
+from grace.members_area.views import members
 
 urlpatterns = [
-    url(r'^$', grace_views.home),
+    url(r'^$', home),
+    url(r'^membros/$', members),
     url(r'^admin/', admin.site.urls),
 ]

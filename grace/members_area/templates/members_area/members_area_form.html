@@ -1,0 +1,125 @@
+{% load static %}
+{% load honeypot %}
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Material Login Form</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+    <link rel="stylesheet" href="{% static 'css/member-area.css' %}">
+
+
+</head>
+
+<body>
+
+<!-- Mixins-->
+<!-- Pen Title-->
+<div class="pen-title">
+    <h1>Área de membros - ERP Grace</h1>
+    <a href="/"><img src="{% static 'img/logo_cloud.png' %}"/></a>
+
+</div>
+<div class="rerun"><a href="">Cancelar cadastro</a></div>
+<div class="container">
+    <div class="card"></div>
+    <div class="card">
+        <h1 class="title">Login</h1>
+        <form>
+            {% csrf_token %}
+            {% render_honeypot_field "user" %}
+            <div class="input-container">
+                <label for="{{ form.login_username.id_for_label }}"></label>
+                {{ form.login_username.errors }}
+                {{ form.login_username }}
+                {{ form.login_username.label_tag }}
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <label for="{{ form.password_username.id_for_label }}"></label>
+                {{ form.password_username.errors }}
+                {{ form.password_username }}
+                {{ form.password_username.label_tag }}
+                <div class="bar"></div>
+            </div>
+            <div class="button-container">
+                <button><span>Login</span></button>
+            </div>
+            <div class="footer"><a href="#">Esqueceu sua senha?</a></div>
+        </form>
+    </div>
+    <div class="card alt">
+        <div class="toggle"></div>
+        <h1 class="title">Criar conta
+            <div class="close"></div>
+        </h1>
+        <form>
+            {% csrf_token %}
+            {% render_honeypot_field "phonenumber" %}
+            <div class="input-container">
+                <label for="{{ form.username.id_for_label }}"></label>
+                {{ form.username.errors }}
+                {{ form.username}}
+                {{ form.username.label_tag }}
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <label for="{{ form.passw.id_for_label }}"></label>
+                {{ form.passw.errors }}
+                {{ form.passw }}
+                {{ form.passw.label_tag }}
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <label for="{{ form.confirmpass.id_for_label }}"></label>
+                {{ form.confirmpass.errors }}
+                {{ form.confirmpass }}
+                {{ form.confirmpass.label_tag }}
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <label for="{{ form.name.id_for_label }}"></label>
+                {{ form.name.errors }}
+                {{ form.name }}
+                {{ form.name.label_tag }}
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <label for="{{ form.cpf.id_for_label }}"></label>
+                {{ form.cpf.errors }}
+                {{ form.cpf }}
+                {{ form.cpf.label_tag }}
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <label for="{{ form.phone.id_for_label }}"></label>
+                {{ form.phone.errors }}
+                {{ form.phone }}
+                {{ form.phone.label_tag }}
+                <div class="bar"></div>
+            </div>
+            <div class="input-container">
+                <label for="{{ form.email.id_for_label }}"></label>
+                {{ form.email.errors}}
+                {{ form.email }}
+                {{ form.email.label_tag }}
+                <div class="bar"></div>
+            </div>
+            <div class="button-container">
+                <button><span>Registrar</span></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script src="{% static 'js/member-area.js' %}"></script>
+
+</body>
+</html>
