@@ -1,4 +1,5 @@
 {% load static %}
+{% load honeypot %}
 <!DOCTYPE html>
 <html lang="en-US">
    <head>
@@ -20,8 +21,8 @@
       <link rel="stylesheet" href="{% static 'css/template-style.css' %}">
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
       <script type="text/javascript" src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
-      <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>    
-      <script type="text/javascript" src="{% static 'js/template-scripts.js' %}"></script> 
+      <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/template-scripts.js' %}"></script>
    </head>
 
    <body class="size-1140">
@@ -39,28 +40,26 @@
                      <a><i class="icon-facebook_circle"></i></a> <a><i class="icon-twitter_circle"></i></a> <a><i class="icon-google_plus_circle"></i></a> <a><i class="icon-instagram_circle"></i></a>
                   </div>
                </div>
-            </div>  
+            </div>
          </div>
 
           <!-- Nav -->
          <nav>
             <div class="line">
                <div class="s-12 l-2">
-                   <a href="/"><img src="{% static 'img/logo.png' %}"/></a>
+                   <a href="/membros/"><img src="{% static 'img/logo_member.png' %}"/></a>
                </div>
+
                <div class="top-nav s-12 l-10">
                   <p class="nav-text">Menu</p>
-                  <ul class="align-content-left">
+                  <ul class="right">
                      <li class="active-item"><a href="#carousel">Home</a></li>
                      <li><a href="#advantages">Vantagens</a></li>
                      <li><a href="#about-us">Sobre nós</a></li>
                      <li><a href="#grace">Por que Grace?</a></li>
                      <li><a href="#services">Serviços</a></li>
                      <li><a href="#contact">Contato</a></li>
-                  </ul>
-                   <ul class="right">
-                     <li><a href="#login">Login</a></li>
-                     <li><a href="#registrar-se">Registrar-se</a></li>
+
                   </ul>
                </div>
             </div>
@@ -154,7 +153,7 @@
                   </div>
                   <div class="s-12 m-6 l-3 margin-bottom">
                      <i class="icon-sli-briefcase icon3x"></i>
-                     <h2>Seguraça</h2>
+                     <h2>Segurança</h2>
                      <p>Backups replicados em diversos data centers ao redor do mundo.
                          Tudo isso para que você fique tranquilo e que nosso ERP esteja 100% do tempo no ar.
                          Sabemos que as informações da sua empresa tem valor inestimável, por isso, garantimos que estejam sempre seguras.</p>
@@ -252,19 +251,18 @@
                         <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Sem preconceitos</h4><p>Grace não julga sua crença.</p></div><img src="{% static 'img/blindao3.jpg' %}" alt=""></a></div>
                         <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Tem que ser blindão</h4><p>Grace tem a intenção de fortalecer a missão.</p></div><img src="{% static 'img/blindao4.jpg' %}" alt=""></a></div>
                       </div>
-                    </div>  
+                    </div>
                   </div> -->
                </div>
             </div>
-         </div>         
+         </div>
 
           <!-- SERVICES -->
          <div id="services">
             <div class="line">
                <h2 class="section-title">Serviços personalizados</h2>
                <div class="margin">
-                  <div class="s-12 m-6 l-4 ma
-rgin-bottom">
+                  <div class="s-12 m-6 l-4 margin-bottom">
                      <i class="icon-sli-target"></i>
                      <div class="service-text">
                         <h3>Criamos para você</h3>
@@ -306,8 +304,8 @@ rgin-bottom">
                       <h4>Primeira release</h4>
                       <p>Versão alfa será lançada no final de novembro.</p>
                     </div>
-                  </div>   
-                </div> 
+                  </div>
+                </div>
                 <div class="s-12 m-6 l-6">
                   <div class="s-12 l-2">
                     <div class="news-date">
@@ -319,11 +317,11 @@ rgin-bottom">
                       <h4>Fase de testes</h4>
                       <p>Duas igrejas participarão da primeira fase de testes</p>
                     </div>
-                  </div>   
-                </div>  
+                  </div>
+                </div>
               </div>
             </div>
-         </div> 
+         </div>
 
           <!-- CONTACT -->
          <div id="contact">
@@ -348,11 +346,24 @@ rgin-bottom">
                   </div>
                   <div class="s-12 m-12 l-5">
                     <h3>Envie suas dúvidas</h3>
-                    <form class="customform" action="">
-                      <div class="s-12"><input name="" placeholder="Seu e-mail" title="Your e-mail" type="text" /></div>
-                      <div class="s-12"><input name="" placeholder="Nome" title="Your name" type="text" /></div>
-                      <div class="s-12"><textarea placeholder="Mensagem" name="" rows="5"></textarea></div>
-                      <div class="s-12 m-12 l-4"><button class="color-btn" type="submit">Enviar</button></div>
+                    <form class="customform" action="." method="post">
+                        {% csrf_token %}
+                        {% render_honeypot_field "phonenumber" %}
+                      <div class="s-12">
+                          {{ form.ur_email.errors}}
+                          {{ form.ur_email }}
+                      </div>
+                      <div class="s-12">
+                          {{ form.ur_name.errors }}
+                          {{ form.ur_name }}
+                      </div>
+                      <div class="s-12">
+                          {{ form.ur_message.errors }}
+                          {{ form.ur_message }}
+                      </div>
+                      <div class="s-12 m-12 l-4">
+                          <button class="color-btn" type="submit">Enviar</button>
+                      </div>
                     </form>
                   </div>                
                </div>
