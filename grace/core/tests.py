@@ -44,6 +44,9 @@ class HomeTest(TestCase):
                                   'ur_name',
                                   'ur_message'], list(form.fields))
 
+    def test_member_area_link(self):
+        self.assertContains(self.response, 'href="/membros/"')
+
 
 class ContactPostTest(TestCase):
 
