@@ -1,5 +1,7 @@
+from django.core import mail
 from django.test import TestCase
-from honeypot.decorators import check_honeypot
+
+from grace.core.forms import HomeContactForm
 
 
 class HomeTest(TestCase):
@@ -29,6 +31,11 @@ class HomeTest(TestCase):
         """ Html must contain csrf """
         self.assertContains(self.response, 'csrfmiddlewaretoken')
 
+    def test_has_form(self):
+        """ Context must have index form"""
+        form = self.response.context['form']
+        self.assertIsInstance(form, HomeContactForm)
+
     def test_contact_form_as_fields(self):
 
         """ Contact form must have 3 fields """
@@ -37,6 +44,72 @@ class HomeTest(TestCase):
                                   'ur_name',
                                   'ur_message'], list(form.fields))
 
+
 class ContactPostTest(TestCase):
+
+    def setUp(self):
+        data = dict(ur_email='hakory@elitedev.com',
+                    ur_name='Hakory',
+                    ur_message='Test message for the win')
+        self.response = self.client.post('/#contact', data)
+
     def test_post(self):
         """ Valid POST should redirect to / """
+        self.assertEqual(302, self.response.status_code)
+
+    def test_send_contact_email(self):
+        self.assertEqual(1, len(mail.outbox))
+
+    def test_contact_email_subject(self):
+        email = mail.outbox[0]
+        expect = "Requisição de contato Grace ERP"
+
+        self.assertEqual(expect, email.subject)
+
+    def test_contact_email_from(self):
+        email = mail.outbox[0]
+        expect = 'hakory@elitedev.com'
+
+        self.assertEqual(expect, email.from_email)
+
+    def test_subscription_email_to(self):
+        email = mail.outbox[0]
+        expect = ['sir.vavo@gmail.com']
+
+        self.assertEqual(expect, email.to)
+
+    def test_contact_email_body(self):
+        email = mail.outbox[0]
+
+        self.assertIn('Hakory', email.body)
+        self.assertIn('hakory@elitedev.com', email.body)
+        self.assertIn('Test message for the win', email.body)
+
+
+class ContactInvalidPost(TestCase):
+
+    def setUp(self):
+        self.response = self.client.post('/#contact', {})
+
+    def test_post(self):
+        """Invalid POST should not redirect"""
+        self.assertEqual(200, self.response.status_code)
+
+    def test_template(self):
+        """ Must use index.html """
+        self.assertTemplateUsed(self.response, 'index.html')
+
+    def test_has_form(self):
+        form = self.response.context['form']
+        self.assertIsInstance(form, HomeContactForm)
+
+    def test_form_has_erros(self):
+        """Must show form input errors"""
+        form = self.response.context['form']
+        self.assertTrue(form.errors)
+
+class ContactSucessMessage(TestCase):
+    def test_message(self):
+        data = dict(ur_email='hakory@elitedev.com',
+                    ur_name='Hakory',
+                    ur_message='Test message for the win')

@@ -16,7 +16,22 @@
 
     <link rel="stylesheet" href="{% static 'css/member-area.css' %}">
 
-
+    <style>
+        .alert {
+            padding: 0 15px;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+        .alert p{
+            padding: 7px 0 7px;
+        }
+        .alert.success{
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d0e9c6;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,32 +41,39 @@
 <div class="pen-title">
     <h1>Área de membros - ERP Grace</h1>
     <a href="/"><img src="{% static 'img/logo_cloud.png' %}"/></a>
-
 </div>
+
 <div class="rerun"><a href="">Cancelar cadastro</a></div>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert success container">
+            <p>{{ message }}</p>
+        </div>
+    {% endfor %}
+{% endif %}
 <div class="container">
     <div class="card"></div>
     <div class="card">
         <h1 class="title">Login</h1>
-        <form>
+        <form action="{% url 'LoginPage' %}" method="post">
             {% csrf_token %}
             {% render_honeypot_field "user" %}
             <div class="input-container">
                 <label for="{{ form.login_username.id_for_label }}"></label>
-                {{ form.login_username.errors }}
-                {{ form.login_username }}
-                {{ form.login_username.label_tag }}
+                {{ login_form.username.errors }}
+                {{ login_form.username }}
+                {{ login_form.username.label_tag }}
                 <div class="bar"></div>
             </div>
             <div class="input-container">
                 <label for="{{ form.password_username.id_for_label }}"></label>
-                {{ form.password_username.errors }}
-                {{ form.password_username }}
-                {{ form.password_username.label_tag }}
+                {{ login_form.password.errors }}
+                {{ login_form.password }}
+                {{ login_form.password.label_tag }}
                 <div class="bar"></div>
             </div>
             <div class="button-container">
-                <button><span>Login</span></button>
+                <button type="submit" name="LoginForm" value="Login"><span>Login</span></button>
             </div>
             <div class="footer"><a href="#">Esqueceu sua senha?</a></div>
         </form>
@@ -61,60 +83,60 @@
         <h1 class="title">Criar conta
             <div class="close"></div>
         </h1>
-        <form>
+        <form action="{% url 'RegisterPage' %}" method="post">
             {% csrf_token %}
             {% render_honeypot_field "phonenumber" %}
             <div class="input-container">
                 <label for="{{ form.username.id_for_label }}"></label>
-                {{ form.username.errors }}
-                {{ form.username}}
-                {{ form.username.label_tag }}
+                {{ register_form.username.errors }}
+                {{ register_form.username}}
+                {{ register_form.username.label_tag }}
                 <div class="bar"></div>
             </div>
             <div class="input-container">
                 <label for="{{ form.passw.id_for_label }}"></label>
-                {{ form.passw.errors }}
-                {{ form.passw }}
-                {{ form.passw.label_tag }}
+                {{ register_form.password.errors }}
+                {{ register_form.password }}
+                {{ register_form.password.label_tag }}
                 <div class="bar"></div>
             </div>
             <div class="input-container">
                 <label for="{{ form.confirmpass.id_for_label }}"></label>
-                {{ form.confirmpass.errors }}
-                {{ form.confirmpass }}
-                {{ form.confirmpass.label_tag }}
+                {{ register_form.confirmpass.errors }}
+                {{ register_form.confirmpass }}
+                {{ register_form.confirmpass.label_tag }}
                 <div class="bar"></div>
             </div>
             <div class="input-container">
                 <label for="{{ form.name.id_for_label }}"></label>
-                {{ form.name.errors }}
-                {{ form.name }}
-                {{ form.name.label_tag }}
+                {{ register_form.name.errors }}
+                {{ register_form.name }}
+                {{ register_form.name.label_tag }}
                 <div class="bar"></div>
             </div>
             <div class="input-container">
                 <label for="{{ form.cpf.id_for_label }}"></label>
-                {{ form.cpf.errors }}
-                {{ form.cpf }}
-                {{ form.cpf.label_tag }}
+                {{ register_form.cpf.errors }}
+                {{ register_form.cpf }}
+                {{ register_form.cpf.label_tag }}
                 <div class="bar"></div>
             </div>
             <div class="input-container">
                 <label for="{{ form.phone.id_for_label }}"></label>
-                {{ form.phone.errors }}
-                {{ form.phone }}
-                {{ form.phone.label_tag }}
+                {{ register_form.phone.errors }}
+                {{ register_form.phone }}
+                {{ register_form.phone.label_tag }}
                 <div class="bar"></div>
             </div>
             <div class="input-container">
                 <label for="{{ form.email.id_for_label }}"></label>
-                {{ form.email.errors}}
-                {{ form.email }}
-                {{ form.email.label_tag }}
+                {{ register_form.email.errors}}
+                {{ register_form.email }}
+                {{ register_form.email.label_tag }}
                 <div class="bar"></div>
             </div>
             <div class="button-container">
-                <button><span>Registrar</span></button>
+                <button type="submit" name="RegisterForm" value="Register"><span>Registrar</span></button>
             </div>
         </form>
     </div>

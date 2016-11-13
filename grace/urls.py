@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from grace.core.views import home
-from grace.members_area.views import members
+from grace.members_area.views import MembersView, LoginFormView, RegisterFormView
 
 urlpatterns = [
     url(r'^$', home),
-    url(r'^membros/$', members),
+    url(r'^membros/$', MembersView.as_view()),
+    url(r'^login/', LoginFormView.as_view(), name='LoginPage'),
+    url(r'^success/', RegisterFormView.as_view(), name='RegisterPage'),
     url(r'^admin/', admin.site.urls),
 ]
