@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'test_without_migrations',
     'honeypot',
     'grace.core',
-    'grace.members_area',
+    'grace.members_area.apps.RegistrationsConfig',
 ]
 
 MIDDLEWARE = [
