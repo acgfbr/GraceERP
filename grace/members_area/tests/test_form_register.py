@@ -8,10 +8,9 @@ class RegisterFormTest(TestCase):
         self.form = RegisterForm()
 
     def test_register_form_has_fields(self):
-        """ Register form must have 7 fields """
+        """ Register form must have 6 fields """
         expected = ['username',
                     'password',
-                    'confirmpass',
                     'name',
                     'cpf',
                     'phone',

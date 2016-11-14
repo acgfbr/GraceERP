@@ -6,6 +6,7 @@ from django.template.loader import render_to_string
 from django.views.generic import FormView
 from django.views.generic import TemplateView
 from grace.members_area.forms import LoginForm, RegisterForm
+from grace.members_area.models import Registration
 
 
 class MembersView(TemplateView):
@@ -58,6 +59,7 @@ class RegisterFormView(FormView):
                             'members_area/register_email.txt',
                             register_form.cleaned_data)
 
+        Registration.objects.create(**register_form.cleaned_data)
         # Success feedback
         messages.success(request, 'Registro realizado com sucesso!')
         return HttpResponseRedirect('/membros/')

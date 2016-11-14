@@ -6,7 +6,7 @@ Estes foram os dados que você nos forneceu
 em seu cadastro:
 
 Usuário: {{ username }}
-Password: {{ passw }}
+Password: {{ password }}
 Nome: {{ name }}
 CPF: {{ cpf }}
 Email: {{ email }}

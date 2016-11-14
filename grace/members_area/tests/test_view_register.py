@@ -1,6 +1,7 @@
 from django.core import mail
 from django.test import TestCase
 from grace.members_area.forms import RegisterForm
+from grace.members_area.models import Registration
 
 
 class RegisterFormGet(TestCase):
@@ -34,6 +35,9 @@ class RegisterPostValid(TestCase):
     def test_send_register_confirmation_email(self):
         self.assertEqual(1, len(mail.outbox))
 
+    def test_save_registration(self):
+        self.assertTrue(Registration.objects.exists())
+
 
 class RegisterPostInvalid(TestCase):
     def setUp(self):
@@ -54,13 +58,14 @@ class RegisterPostInvalid(TestCase):
         form = self.response.context['register_form']
         self.assertTrue(form.errors)
 
+    def test_dont_save_registration(self):
+        self.assertFalse(Registration.objects.exists())
 
 class RegisterSuccessMessage(TestCase):
 
     def setUp(self):
         data = dict(username='Hakory',
                     password='1234',
-                    confirmpass='1234',
                     name='Flame',
                     cpf='12345678901',
                     phone='16-98198-6747',
