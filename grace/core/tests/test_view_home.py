@@ -4,7 +4,7 @@ from django.test import TestCase
 from grace.core.forms import HomeContactForm
 
 
-class HomeTest(TestCase):
+class HomeGet(TestCase):
 
     def setUp(self):
         self.response = self.client.get('/')
@@ -20,12 +20,15 @@ class HomeTest(TestCase):
     def test_html(self):
         """Html must contain input tags"""
 
-        self.assertContains(self.response, '<form')
-        self.assertContains(self.response, '<input', 4)
-        self.assertContains(self.response, '<textarea', 1)
-        self.assertContains(self.response, 'type="text"', 2)
-        self.assertContains(self.response, 'type="email"', 1)
-        self.assertContains(self.response, 'type="submit"', 1)
+        tags = (('<form', 1),
+                ('<input', 4),
+                ('<textarea', 1),
+                ('type="text"', 2),
+                ('type="email"', 1),
+                ('type="submit"', 1))
+
+        for text, count in tags:
+            self.assertContains(self.response, text, count)
 
     def test_csrf(self):
         """ Html must contain csrf """
@@ -48,7 +51,7 @@ class HomeTest(TestCase):
         self.assertContains(self.response, 'href="/membros/"')
 
 
-class ContactPostTest(TestCase):
+class ContactPostValid(TestCase):
 
     def setUp(self):
         data = dict(ur_email='hakory@elitedev.com',
@@ -63,33 +66,9 @@ class ContactPostTest(TestCase):
     def test_send_contact_email(self):
         self.assertEqual(1, len(mail.outbox))
 
-    def test_contact_email_subject(self):
-        email = mail.outbox[0]
-        expect = "Requisição de contato Grace ERP"
-
-        self.assertEqual(expect, email.subject)
-
-    def test_contact_email_from(self):
-        email = mail.outbox[0]
-        expect = 'hakory@elitedev.com'
-
-        self.assertEqual(expect, email.from_email)
-
-    def test_subscription_email_to(self):
-        email = mail.outbox[0]
-        expect = ['sir.vavo@gmail.com']
-
-        self.assertEqual(expect, email.to)
-
-    def test_contact_email_body(self):
-        email = mail.outbox[0]
-
-        self.assertIn('Hakory', email.body)
-        self.assertIn('hakory@elitedev.com', email.body)
-        self.assertIn('Test message for the win', email.body)
 
 
-class ContactInvalidPost(TestCase):
+class ContactPostInvalid(TestCase):
 
     def setUp(self):
         self.response = self.client.post('/#contact', {})
@@ -111,8 +90,3 @@ class ContactInvalidPost(TestCase):
         form = self.response.context['form']
         self.assertTrue(form.errors)
 
-class ContactSucessMessage(TestCase):
-    def test_message(self):
-        data = dict(ur_email='hakory@elitedev.com',
-                    ur_name='Hakory',
-                    ur_message='Test message for the win')

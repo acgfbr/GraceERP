@@ -1,0 +1,14 @@
+{% extends 'error.html' %}
+{% block title %}
+    Erro 500
+{% endblock title %}
+{% block Error_Message %}
+    500 - Erro interno inesperado
+{% endblock Error_Message %}
+{% block Error_Description %}
+    Desculpe. Ocorreu um erro inesperado.
+{% endblock Error_Description %}
+{% block content %}
+    Nossa equipe já foi notificada do problema.
+Caso necessário entre em contato com <a href="mailto:suporte@elitedev.com.br?subject=500 Erro interno inesperado">suporte@elitedev.com.br</a>
+{% endblock content %}
