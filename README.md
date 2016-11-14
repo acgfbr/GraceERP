@@ -2,6 +2,9 @@
 
 Solução de Gestão Empresarial Web (em CloudComputing) direcionado para igrejas.
 
+[![Build Status](https://travis-ci.org/EliteDevelopers/GraceERP.svg?branch=master)](https://travis-ci.org/EliteDevelopers/GraceERP)
+[![Code Health](https://landscape.io/github/EliteDevelopers/GraceERP/master/landscape.svg?style=flat)](https://landscape.io/github/EliteDevelopers/GraceERP/master)
+
 ## Como desenvolver?
 
 1. Clone o repositório.
