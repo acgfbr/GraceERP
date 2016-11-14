@@ -1,4 +1,4 @@
-# ERP Grace
+# Grace - ERP in cloud
 
 Solução de Gestão Empresarial Web (em CloudComputing) direcionado para igrejas.
 
