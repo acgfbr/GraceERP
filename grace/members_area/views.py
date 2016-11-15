@@ -63,13 +63,13 @@ class RegisterFormView(FormView):
                             'members_area/register_email.txt',
                             {'registration': registration})
 
-        return HttpResponseRedirect(r('members:success', registration.pk))
+        return HttpResponseRedirect(r('members:success', str(registration.hashId)))
 
 
-def detail(request, pk):
+def detail(request, hashid):
 
     try:
-        registration = Registration.objects.get(pk=pk)
+        registration = Registration.objects.get(hashId=hashid)
     except Registration.DoesNotExist:
         raise Http404
 

@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 
 
@@ -9,6 +11,7 @@ class Registration(models.Model):
     phone = models.CharField('Telefone', max_length=20)
     email = models.EmailField('E-mail', max_length=75)
     created_at = models.DateTimeField('Criado em', auto_now_add=True)
+    hashId = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
 
     class Meta:
         verbose_name = 'registro'

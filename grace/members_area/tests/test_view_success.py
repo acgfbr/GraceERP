@@ -13,7 +13,8 @@ class RegistrationSuccessGet(TestCase):
                                                cpf='12345678901',
                                                phone='16-98198-6747',
                                                email='sir.vavo@gmail.com')
-        self.response = self.client.get(r('members:success', self.obj.pk))
+
+        self.response = self.client.get(r('members:success', self.obj.hashId))
 
     def test_get(self):
         self.assertEqual(200, self.response.status_code)
@@ -40,5 +41,5 @@ class RegistrationSuccessGet(TestCase):
 
 class RegistrationDetailNotFound(TestCase):
     def test_not_found(self):
-        response = self.client.get(r('members:success', 0))
+        response = self.client.get(r('members:success', '00000000-0000-0000-0000-000000000000'))
         self.assertEqual(404, response.status_code)

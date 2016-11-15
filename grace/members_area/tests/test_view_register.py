@@ -27,13 +27,13 @@ class RegisterNewPostValid(TestCase):
                     cpf='12345678901',
                     phone='16-98198-6747',
                     email='sir.vavo@gmail.com')
-
         self.response = self.client.post(r('members:register'), data)
+        self.hashId = Registration.objects.first().hashId
+
 
     def test_post(self):
-        """ Valid POST should redirect to /success/1/ """
-        self.assertEqual(302, self.response.status_code)
-        self.assertRedirects(self.response, r('members:success', 1))
+        """ Valid POST should redirect to /success/hashId/ """
+        self.assertRedirects(self.response, r('members:success', self.hashId))
 
     def test_send_register_confirmation_email(self):
         self.assertEqual(1, len(mail.outbox))
