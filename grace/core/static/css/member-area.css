@@ -1,8 +1,8 @@
 body {
     background: url(http://static.radulescu.me/examples/clouds/clouds1000.png);
     background: url(http://static.radulescu.me/examples/clouds/clouds1000.png) 0 200px,
-                url(http://static.radulescu.me/examples/clouds/clouds1200_1.png) 0 300px,
-                url(http://static.radulescu.me/examples/clouds/clouds1000_blur3.png) 100px 250px;
+    url(http://static.radulescu.me/examples/clouds/clouds1200_1.png) 0 300px,
+    url(http://static.radulescu.me/examples/clouds/clouds1000_blur3.png) 100px 250px;
     animation: wind 20s linear infinite;
     color: #007ced;
     font-family: 'RobotoDraft', 'Roboto', sans-serif;
@@ -472,3 +472,10 @@ body {
     border-color: #d0e9c6;
 }
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+p, li {
+    margin-top: 15px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    margin-left: 35px;
+}

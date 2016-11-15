@@ -1,5 +1,6 @@
 from django.core import mail
 from django.test import TestCase
+
 from grace.members_area.forms import RegisterForm
 from grace.members_area.models import Registration
 
@@ -29,8 +30,9 @@ class RegisterPostValid(TestCase):
         self.response = self.client.post('/success/', data)
 
     def test_post(self):
-        """ Valid POST should redirect to /success/ """
+        """ Valid POST should redirect to /success/1/ """
         self.assertEqual(302, self.response.status_code)
+        self.assertRedirects(self.response, '/success/1/')
 
     def test_send_register_confirmation_email(self):
         self.assertEqual(1, len(mail.outbox))
@@ -61,16 +63,3 @@ class RegisterPostInvalid(TestCase):
     def test_dont_save_registration(self):
         self.assertFalse(Registration.objects.exists())
 
-class RegisterSuccessMessage(TestCase):
-
-    def setUp(self):
-        data = dict(username='Hakory',
-                    password='1234',
-                    name='Flame',
-                    cpf='12345678901',
-                    phone='16-98198-6747',
-                    email='sir.vavo@gmail.com')
-        self.response = self.client.post('/success/', data, follow=True)
-
-    def test_message(self):
-        self.assertContains(self.response, 'Registro realizado com sucesso!')

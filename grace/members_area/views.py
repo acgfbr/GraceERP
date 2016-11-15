@@ -1,7 +1,9 @@
 from django.conf import settings
 from django.contrib import messages
 from django.core import mail
+from django.http import Http404
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.views.generic import FormView
 from django.views.generic import TemplateView
@@ -52,17 +54,26 @@ class RegisterFormView(FormView):
         if not register_form.is_valid():
             return self.render_to_response(self.get_context_data(register_form=register_form, login_form=login_form))
 
+        registration = Registration.objects.create(**register_form.cleaned_data)
+
         # Send email
         _send_register_mail('Confirmação de registro',
                             settings.DEFAULT_FROM_EMAIL,
-                            register_form.cleaned_data['email'],
+                            registration.email,
                             'members_area/register_email.txt',
-                            register_form.cleaned_data)
+                            {'registration': registration})
 
-        Registration.objects.create(**register_form.cleaned_data)
-        # Success feedback
-        messages.success(request, 'Registro realizado com sucesso!')
-        return HttpResponseRedirect('/membros/')
+        return HttpResponseRedirect('/success/{}/'.format(registration.pk))
+
+
+def detail(request, pk):
+
+    try:
+        registration = Registration.objects.get(pk=pk)
+    except Registration.DoesNotExist:
+        raise Http404
+
+    return render(request, 'members_area/members_area_success.html', {'registration': registration})
 
 
 def _send_register_mail(subject, from_, to, template_email_name, context):
