@@ -1,9 +1,10 @@
 from django.test import TestCase
+from django.shortcuts import resolve_url as r
 
 
 class MemberAreaGet(TestCase):
     def setUp(self):
-        self.response = self.client.get('/membros/')
+        self.response = self.client.get(r('members:members_area'))
 
     def test_get(self):
         """ GET /membros/ must return status_code 200 """

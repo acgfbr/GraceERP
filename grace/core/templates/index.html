@@ -2,246 +2,246 @@
 {% load honeypot %}
 <!DOCTYPE html>
 <html lang="en-US">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Grace - ERP in cloud</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grace - ERP in cloud</title>
 
-       <!-- Favicon -->
-        <link rel="shortcut icon" href="{% static 'img/favicon.png'%}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.png'%}">
 
-       <!-- CSS -->
-      <link rel="stylesheet" href="{% static 'css/components.css' %}">
-      <link rel="stylesheet" href="{% static 'css/responsee.css' %}">
-      <link rel="stylesheet" href="{% static 'css/icons.css' %}">
-      <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}">
-      <link rel="stylesheet" href="{% static 'owl-carousel/owl.theme.css' %}">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsee.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icons.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.theme.css' %}">
 
-       <!-- CUSTOM STYLE -->
-      <link rel="stylesheet" href="{% static 'css/template-style.css' %}">
-      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-      <script type="text/javascript" src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
-      <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
-      <script type="text/javascript" src="{% static 'js/template-scripts.js' %}"></script>
-   </head>
+    <!-- CUSTOM STYLE -->
+    <link rel="stylesheet" href="{% static 'css/template-style.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/template-scripts.js' %}"></script>
+</head>
 
-   <body class="size-1140">
+<body class="size-1140">
 
-   <!-- TOP NAV WITH LOGO -->
-      <header>
-          <!-- Superior bar -->
-          <div id="topbar">
-            <div class="line">
-               <div class="s-12 m-6 l-6">
-                  <p>Atendimento via telefone: <strong>(016)98198-6747</strong> | <strong>contato@elitedev.com</strong></p>
-               </div>
-               <div class="s-12 m-6 l-6">
-                  <div class="social right">
-                     <a><i class="icon-facebook_circle"></i></a> <a><i class="icon-twitter_circle"></i></a> <a><i class="icon-google_plus_circle"></i></a> <a><i class="icon-instagram_circle"></i></a>
-                  </div>
-               </div>
+<!-- TOP NAV WITH LOGO -->
+<header>
+    <!-- Superior bar -->
+    <div id="topbar">
+        <div class="line">
+            <div class="s-12 m-6 l-6">
+                <p>Atendimento via telefone: <strong>(016)98198-6747</strong> | <strong>contato@elitedev.com</strong></p>
             </div>
-         </div>
-
-          <!-- Nav -->
-         <nav>
-            <div class="line">
-               <div class="s-12 l-2">
-                   <a href="/membros/"><img src="{% static 'img/logo_member.png' %}"/></a>
-               </div>
-
-               <div class="top-nav s-12 l-10">
-                  <p class="nav-text">Menu</p>
-                  <ul class="right">
-                     <li class="active-item"><a href="#carousel">Home</a></li>
-                     <li><a href="#advantages">Vantagens</a></li>
-                     <li><a href="#about-us">Sobre nós</a></li>
-                     <li><a href="#grace">Por que Grace?</a></li>
-                     <li><a href="#services">Serviços</a></li>
-                     <li><a href="#contact">Contato</a></li>
-
-                  </ul>
-               </div>
+            <div class="s-12 m-6 l-6">
+                <div class="social right">
+                    <a><i class="icon-facebook_circle"></i></a> <a><i class="icon-twitter_circle"></i></a> <a><i class="icon-google_plus_circle"></i></a> <a><i class="icon-instagram_circle"></i></a>
+                </div>
             </div>
-         </nav>
-      </header>
-      <section>
+        </div>
+    </div>
 
-          <!-- CAROUSEL -->
-         <div id="carousel">
-            <div id="owl-demo" class="owl-carousel owl-theme">
-               <div class="item">
-                  <img src="{% static 'img/first.jpg' %}" alt="">
-                  <div class="line">
-                     <div class="text hide-s">
+    <!-- Nav -->
+    <nav>
+        <div class="line">
+            <div class="s-12 l-2">
+                <a href="{% url 'members:members_area' %}"><img src="{% static 'img/logo_member.png' %}"/></a>
+            </div>
+
+            <div class="top-nav s-12 l-10">
+                <p class="nav-text">Menu</p>
+                <ul class="right">
+                    <li class="active-item"><a href="#carousel">Home</a></li>
+                    <li><a href="#advantages">Vantagens</a></li>
+                    <li><a href="#about-us">Sobre nós</a></li>
+                    <li><a href="#grace">Por que Grace?</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#contact">Contato</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<section>
+
+    <!-- CAROUSEL -->
+    <div id="carousel">
+        <div id="owl-demo" class="owl-carousel owl-theme">
+            <div class="item">
+                <img src="{% static 'img/first.jpg' %}" alt="">
+                <div class="line">
+                    <div class="text hide-s">
                         <div class="line">
-                          <div class="prev-arrow hide-s hide-m">
-                             <i class="icon-chevron_left"></i>
-                          </div>
-                          <div class="next-arrow hide-s hide-m">
-                             <i class="icon-chevron_right"></i>
-                          </div>
+                            <div class="prev-arrow hide-s hide-m">
+                                <i class="icon-chevron_left"></i>
+                            </div>
+                            <div class="next-arrow hide-s hide-m">
+                                <i class="icon-chevron_right"></i>
+                            </div>
                         </div>
                         <h2>REDUÇÃO DE GASTOS!</h2>
                         <p>Grace segue o modelo SaaS e você pode ter até 80% de economia. Reduzindo gastos e preservando o meio-ambiente!</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="{% static 'img/second.jpg' %}" alt="">
-                  <div class="line">
-                     <div class="text hide-s">
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{% static 'img/second.jpg' %}" alt="">
+                <div class="line">
+                    <div class="text hide-s">
                         <div class="line">
-                          <div class="prev-arrow hide-s hide-m">
-                             <i class="icon-chevron_left"></i>
-                          </div>
-                          <div class="next-arrow hide-s hide-m">
-                             <i class="icon-chevron_right"></i>
-                          </div>
+                            <div class="prev-arrow hide-s hide-m">
+                                <i class="icon-chevron_left"></i>
+                            </div>
+                            <div class="next-arrow hide-s hide-m">
+                                <i class="icon-chevron_right"></i>
+                            </div>
                         </div>
                         <h2>AGILIDADE COM ATUALIZAÇÕES E BACKUPS AUTOMÁTICOS</h2>
                         <p>Sua equipe de TI também não vai mais precisar gastar tempo, nem trabalhar de madrugada para fazer onerosas atualizações de sistema.</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="item">
-                  <img src="{% static 'img/third.jpg' %}" alt="">
-                  <div class="line">
-                     <div class="text hide-s">
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{% static 'img/third.jpg' %}" alt="">
+                <div class="line">
+                    <div class="text hide-s">
                         <div class="line">
-                          <div class="prev-arrow hide-s hide-m">
-                             <i class="icon-chevron_left"></i>
-                          </div>
-                          <div class="next-arrow hide-s hide-m">
-                             <i class="icon-chevron_right"></i>
-                          </div>
+                            <div class="prev-arrow hide-s hide-m">
+                                <i class="icon-chevron_left"></i>
+                            </div>
+                            <div class="next-arrow hide-s hide-m">
+                                <i class="icon-chevron_right"></i>
+                            </div>
                         </div>
                         <h2>ESCALABILIDADE, ELASTICIDADE E TECNOLOGIA DE PONTA</h2>
                         <p>Grace cuidará de todas as mudanças necessárias para você e vai melhorar sua infraestrutura conforme suas necessidades sem que você nem sequer perceba.</p>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
+        </div>
+    </div>
 
-          <!-- FIRST BLOCK -->
-         <div id="first-block">
-            <div class="line">
-               <h1>O ERP nas nuvens pronto para você!</h1>
-               <p>Quer trazer inovação, alto padrão de gerenciamento e redução de custos para sua igreja? Faça uma consulta conosco agora mesmo!</p>
-               <div class="s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Fale conosco</a></div>
+    <!-- FIRST BLOCK -->
+    <div id="first-block">
+        <div class="line">
+            <h1>O ERP nas nuvens pronto para você!</h1>
+            <p>Quer trazer inovação, alto padrão de gerenciamento e redução de custos para sua igreja? Faça uma consulta conosco agora mesmo!</p>
+            <div class="s-12 m-4 l-2 center"><a class="white-btn" href="#contact">Fale conosco</a></div>
+        </div>
+    </div>
+
+    <!-- Vantagens -->
+    <div id="advantages">
+        <div class="line">
+            <div class="margin">
+                <div class="s-12 m-6 l-3 margin-bottom">
+                    <i class="icon-globe icon3x"></i>
+                    <h2>Online</h2>
+                    <p>Acesse e gerencie o que você precisar de onde você estiver.
+                        O acesso ao sistema ERP na nuvem se dá diretamente pelo computador dos funcionários, via internet, sem a necessidade de instalação de nenhum tipo de software na máquina.
+                    </p>
+                </div>
+                <div class="s-12 m-6 l-3 margin-bottom">
+                    <i class="icon-sli-wallet icon3x"></i>
+                    <h2>Econômico</h2>
+                    <p>Tudo na medida que você precisa, nada de pagar por recursos que você não utiliza.
+                        Nada de surpresas, nada de custos escondidos.
+                        Você sabe exatamente o que vai pagar por mês, e terá total previsibilidade em seu fluxo de caixa.</p>
+                </div>
+                <div class="s-12 m-6 l-3 margin-bottom">
+                    <i class="icon-sli-briefcase icon3x"></i>
+                    <h2>Segurança</h2>
+                    <p>Backups replicados em diversos data centers ao redor do mundo.
+                        Tudo isso para que você fique tranquilo e que nosso ERP esteja 100% do tempo no ar.
+                        Sabemos que as informações da sua empresa tem valor inestimável, por isso, garantimos que estejam sempre seguras.</p>
+                </div>
+                <div class="s-12 m-6 l-3 margin-bottom">
+                    <i class="icon-sli-organization icon3x"></i>
+                    <h2>Escalabilidade</h2>
+                    <p>Além de todas as vantagens já citadas, sua empresa não precisa se preocupar com manutenção e atualização do sistema.
+                        Todos estes itens ficam sob a nossa responsabilidade, para que você possa focar no que realmente importa: sua empresa.</p>
+                </div>
             </div>
-         </div>
+        </div>
+    </div>
 
-          <!-- Vantagens -->
-         <div id="advantages">
-            <div class="line">
-               <div class="margin">
-                  <div class="s-12 m-6 l-3 margin-bottom">
-                     <i class="icon-globe icon3x"></i>
-                     <h2>Online</h2>
-                     <p>Acesse e gerencie o que você precisar de onde você estiver.
-                         O acesso ao sistema ERP na nuvem se dá diretamente pelo computador dos funcionários, via internet, sem a necessidade de instalação de nenhum tipo de software na máquina.
-                         </p>
-                  </div>
-                  <div class="s-12 m-6 l-3 margin-bottom">
-                     <i class="icon-sli-wallet icon3x"></i>
-                     <h2>Econômico</h2>
-                     <p>Tudo na medida que você precisa, nada de pagar por recursos que você não utiliza.
-                         Nada de surpresas, nada de custos escondidos.
-                         Você sabe exatamente o que vai pagar por mês, e terá total previsibilidade em seu fluxo de caixa.</p>
-                  </div>
-                  <div class="s-12 m-6 l-3 margin-bottom">
-                     <i class="icon-sli-briefcase icon3x"></i>
-                     <h2>Segurança</h2>
-                     <p>Backups replicados em diversos data centers ao redor do mundo.
-                         Tudo isso para que você fique tranquilo e que nosso ERP esteja 100% do tempo no ar.
-                         Sabemos que as informações da sua empresa tem valor inestimável, por isso, garantimos que estejam sempre seguras.</p>
-                  </div>
-                  <div class="s-12 m-6 l-3 margin-bottom">
-                     <i class="icon-sli-organization icon3x"></i>
-                     <h2>Escalabilidade</h2>
-                     <p>Além de todas as vantagens já citadas, sua empresa não precisa se preocupar com manutenção e atualização do sistema.
-                         Todos estes itens ficam sob a nossa responsabilidade, para que você possa focar no que realmente importa: sua empresa.</p>
-                  </div>
-               </div>
+    <!-- Sobre nós -->
+    <div id="about-us">
+        <div class="s-12 m-12 l-6 media-container">
+            <img src="{% static 'img/about.jpg' %}" alt="">
+        </div>
+        <article class="s-12 m-12 l-6">
+            <h2>Tradição<br> com<br> Inovação</h2>
+            <p>Prezamos por uma parceria junto aos nossos clientes, em busca de resultados de alto impacto.
+                Trabalhando através do aperfeiçoamento da gestão e atuando na transformação das organizações, auxiliando-os a obter saltos de produtividade, rentabilidade e sustentabilidade, trazendo a qualidade do ERP que você já conhece em desktop para as nuvens.
+            </p>
+            <div class="about-us-icons">
+                <i class="icon-sli-screen-desktop"></i> <i class="icon-globe"></i> <i class="icon-sli-screen-smartphone"></i>
             </div>
-         </div>
+        </article>
+    </div>
 
-          <!-- Sobre nós -->
-         <div id="about-us">
-            <div class="s-12 m-12 l-6 media-container">
-               <img src="{% static 'img/about.jpg' %}" alt="">
-            </div>
-            <article class="s-12 m-12 l-6">
-               <h2>Tradição<br> com<br> Inovação</h2>
-               <p>Prezamos por uma parceria junto aos nossos clientes, em busca de resultados de alto impacto.
-                   Trabalhando através do aperfeiçoamento da gestão e atuando na transformação das organizações, auxiliando-os a obter saltos de produtividade, rentabilidade e sustentabilidade, trazendo a qualidade do ERP que você já conhece em desktop para as nuvens.
-               </p>
-               <div class="about-us-icons">
-                  <i class="icon-sli-screen-desktop"></i> <i class="icon-globe"></i> <i class="icon-sli-screen-smartphone"></i>
-               </div>
-            </article>
-         </div>
-
-          <!-- grace -->
-         <div id="grace">
-            <div class="line">
-                <h2 class="section-title">Grace é...</h2>
-               <div class="tabs">
-                  <div class="tab-item tab-active">
+    <!-- grace -->
+    <div id="grace">
+        <div class="line">
+            <h2 class="section-title">Grace é...</h2>
+            <div class="tabs">
+                <div class="tab-item tab-active">
                     <a class="tab-label active-btn">Gestão</a>
                     <div class="tab-content">
-                      <div class="margin">
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Cadastro</h4><p>Colaboradores, fiéis, fornecedores ou o que você precisar, cadastrado, listado.</p></div><img src="{% static 'img/gestao1.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Agenda</h4><p>Compromissos salvos e com lembretes e avisos programados para que você não perca nada.</p></div><img src="{% static 'img/gestao2.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Finanças</h4><p>Controle de gastos, vendas, doações. Seu estoque e seu caixa sempre no azul. </p></div><img src="{% static 'img/gestao3.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Contato</h4><p>Uma boa relação entre membros e frequentantes é vital. Recursos especiais para garantir isso.</p></div><img src="{% static 'img/gestao4.jpg' %}" alt=""></a></div>
-                      </div>
+                        <div class="margin">
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Cadastro</h4><p>Colaboradores, fiéis, fornecedores ou o que você precisar, cadastrado, listado.</p></div><img src="{% static 'img/gestao1.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Agenda</h4><p>Compromissos salvos e com lembretes e avisos programados para que você não perca nada.</p></div><img src="{% static 'img/gestao2.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Finanças</h4><p>Controle de gastos, vendas, doações. Seu estoque e seu caixa sempre no azul. </p></div><img src="{% static 'img/gestao3.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Contato</h4><p>Uma boa relação entre membros e frequentantes é vital. Recursos especiais para garantir isso.</p></div><img src="{% static 'img/gestao4.jpg' %}" alt=""></a></div>
+                        </div>
                     </div>
-                  </div>
-                    <div class="tab-item">
+                </div>
+                <div class="tab-item">
                     <a class="tab-label">Responsivo</a>
                     <div class="tab-content">
-                      <div class="margin">
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Falta de excesso</h4><p>Somos contra excessos, mas encontrou algo faltando no Grace? É só pedir.</p></div><img src="{% static 'img/responsivo1.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Atualização constante</h4><p>Tecnologia recente, atualizações programadas e de acordo com seu feedback.</p></div><img src="{% static 'img/responsivo2.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Infraestura</h4><p>Não há necessidade de gastar uma fortuna com salas e máquinas.</p></div><img src="{% static 'img/responsivo3.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Deu problema?</h4><p>Fale com os desenvolvedores. Ligação direta, aqui não tem ramal.</p></div><img src="{% static 'img/responsivo4.jpg' %}" alt=""></a></div>
-                      </div>
+                        <div class="margin">
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Falta de excesso</h4><p>Somos contra excessos, mas encontrou algo faltando no Grace? É só pedir.</p></div><img src="{% static 'img/responsivo1.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Atualização constante</h4><p>Tecnologia recente, atualizações programadas e de acordo com seu feedback.</p></div><img src="{% static 'img/responsivo2.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Infraestura</h4><p>Não há necessidade de gastar uma fortuna com salas e máquinas.</p></div><img src="{% static 'img/responsivo3.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Deu problema?</h4><p>Fale com os desenvolvedores. Ligação direta, aqui não tem ramal.</p></div><img src="{% static 'img/responsivo4.jpg' %}" alt=""></a></div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="tab-item">
+                </div>
+                <div class="tab-item">
                     <a class="tab-label">Automação</a>
                     <div class="tab-content">
-                      <div class="margin">
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Acesso</h4><p>Controles de entrada e saída, fluxo de pessoas.</p></div><img src="{% static 'img/automacao1.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Ambientação</h4><p>Controles de luz, som, temperatura e mais.</p></div><img src="{% static 'img/automacao2.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Animais e jardim</h4><p>Controle desde temperatura de aquário até irrigação do jardim.</p></div><img src="{% static 'img/automacao3.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Tudo remoto</h4><p>De onde estiver, tudo no seu celular, tudo sob seus cuidados.</p></div><img src="{% static 'img/automacao4.jpg' %}" alt=""></a></div>
-                      </div>
+                        <div class="margin">
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Acesso</h4><p>Controles de entrada e saída, fluxo de pessoas.</p></div><img src="{% static 'img/automacao1.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Ambientação</h4><p>Controles de luz, som, temperatura e mais.</p></div><img src="{% static 'img/automacao2.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Animais e jardim</h4><p>Controle desde temperatura de aquário até irrigação do jardim.</p></div><img src="{% static 'img/automacao3.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Tudo remoto</h4><p>De onde estiver, tudo no seu celular, tudo sob seus cuidados.</p></div><img src="{% static 'img/automacao4.jpg' %}" alt=""></a></div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="tab-item">
+                </div>
+                <div class="tab-item">
                     <a class="tab-label">Customização</a>
                     <div class="tab-content">
-                      <div class="margin">
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Dashboard</h4><p>Escolha quais dados serão mostrados.</p></div><img src="{% static 'img/customizacao1.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Cores</h4><p>Imagens e cores de acordo com sua necessidade.</p></div><img src="{% static 'img/customizacao2.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Acesso</h4><p>Selecione quem vai ter acesso a determinada funcionalidade.</p></div><img src="{% static 'img/customizacao3.jpg' %}" alt=""></a></div>
-                        <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Perfil</h4><p>Tudo para ser exclusivo como o seu perfil.</p></div><img src="{% static 'img/customizacao4.jpg' %}" alt=""></a></div>
-                      </div>
+                        <div class="margin">
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Dashboard</h4><p>Escolha quais dados serão mostrados.</p></div><img src="{% static 'img/customizacao1.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Cores</h4><p>Imagens e cores de acordo com sua necessidade.</p></div><img src="{% static 'img/customizacao2.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Acesso</h4><p>Selecione quem vai ter acesso a determinada funcionalidade.</p></div><img src="{% static 'img/customizacao3.jpg' %}" alt=""></a></div>
+                            <div class="s-12 m-6 l-3"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Perfil</h4><p>Tudo para ser exclusivo como o seu perfil.</p></div><img src="{% static 'img/customizacao4.jpg' %}" alt=""></a></div>
+                        </div>
                     </div>
-                  </div>
-                    <div class="tab-item">
+                </div>
+                <div class="tab-item">
                     <a class="tab-label">Especial</a>
                     <div class="tab-content">
-                      <div class="margin">
-                        <div class="s-12 m-6 l-3 center"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Para nós...</h4><p>Você não é só mais um cliente feliz. Você é nosso parceiro.</p></div><img src="{% static 'img/especial1.jpg' %}" alt=""></a></div>
-                      </div>
+                        <div class="margin">
+                            <div class="s-12 m-6 l-3 center"><a class="grace-container lightbox margin-bottom"><div class="grace-text"><h4>Para nós...</h4><p>Você não é só mais um cliente feliz. Você é nosso parceiro.</p></div><img src="{% static 'img/especial1.jpg' %}" alt=""></a></div>
+                        </div>
                     </div>
-                  </div>
-                   <!--
+                </div>
+                <!--
                   <div class="tab-item">
                     <a class="tab-label">Esteroides</a>
                     <div class="tab-content">
@@ -253,172 +253,179 @@
                       </div>
                     </div>
                   </div> -->
-               </div>
             </div>
-         </div>
+        </div>
+    </div>
 
-          <!-- SERVICES -->
-         <div id="services">
-            <div class="line">
-               <h2 class="section-title">Serviços personalizados</h2>
-               <div class="margin">
-                  <div class="s-12 m-6 l-4 margin-bottom">
-                     <i class="icon-sli-target"></i>
-                     <div class="service-text">
+    <!-- SERVICES -->
+    <div id="services">
+        <div class="line">
+            <h2 class="section-title">Serviços personalizados</h2>
+            <div class="margin">
+                <div class="s-12 m-6 l-4 margin-bottom">
+                    <i class="icon-sli-target"></i>
+                    <div class="service-text">
                         <h3>Criamos para você</h3>
                         <p>Novas funcionalidades com foco em suas necessidades. Apenas o necessário, sem complicação.</p>
-                     </div>
-                  </div>
-                  <div class="s-12 m-6 l-4 margin-bottom">
-                     <i class="icon-sli-bubbles"></i>
-                     <div class="service-text">
+                    </div>
+                </div>
+                <div class="s-12 m-6 l-4 margin-bottom">
+                    <i class="icon-sli-bubbles"></i>
+                    <div class="service-text">
                         <h3>Diálogo transparente</h3>
                         <p>Relação estreita, feedbacks curtos. Mais do que desenvolver para você, desenvolveremos juntos com você.</p>
-                     </div>
-                  </div>
-                  <div class="s-12 m-12 l-4 margin-bottom">
-                     <i class="icon-random"></i>
-                     <div class="service-text">
+                    </div>
+                </div>
+                <div class="s-12 m-12 l-4 margin-bottom">
+                    <i class="icon-random"></i>
+                    <div class="service-text">
                         <h3>Software saudável</h3>
                         <p>Não basta ser responsivo no layout. Responsabilidade pra nós é responder as necessidades que vão surgir.
                             Entregar software responsivo de ponta-a-ponta.</p>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-         </div>
+        </div>
+    </div>
 
-          <!-- LATEST NEWS - Mudar depois para uma forma melhor de atualizar -->
-         <div id="latest-news">
-            <div class="line">
-              <h2 class="section-title">Últimas notícias</h2>
-              <div class="margin">
+    <!-- LATEST NEWS - Mudar depois para uma forma melhor de atualizar -->
+    <div id="latest-news">
+        <div class="line">
+            <h2 class="section-title">Últimas notícias</h2>
+            <div class="margin">
                 <div class="s-12 m-6 l-6">
-                  <div class="s-12 l-2">
-                    <div class="news-date">
-                      <p class="day">01</p><p class="month">Novembro</p><p class="year">2016</p>
+                    <div class="s-12 l-2">
+                        <div class="news-date">
+                            <p class="day">01</p><p class="month">Novembro</p><p class="year">2016</p>
+                        </div>
                     </div>
-                  </div>
-                  <div class="s-12 l-10">
-                    <div class="news-text">
-                      <h4>Primeira release</h4>
-                      <p>Versão alfa será lançada no final de novembro.</p>
+                    <div class="s-12 l-10">
+                        <div class="news-text">
+                            <h4>Primeira release</h4>
+                            <p>Versão alfa será lançada no final de novembro.</p>
+                        </div>
                     </div>
-                  </div>
                 </div>
                 <div class="s-12 m-6 l-6">
-                  <div class="s-12 l-2">
-                    <div class="news-date">
-                      <p class="day">05</p><p class="month">Novembro</p><p class="year">2016</p>
+                    <div class="s-12 l-2">
+                        <div class="news-date">
+                            <p class="day">05</p><p class="month">Novembro</p><p class="year">2016</p>
+                        </div>
                     </div>
-                  </div>
-                  <div class="s-12 l-10">
-                    <div class="news-text">
-                      <h4>Fase de testes</h4>
-                      <p>Duas igrejas participarão da primeira fase de testes</p>
+                    <div class="s-12 l-10">
+                        <div class="news-text">
+                            <h4>Fase de testes</h4>
+                            <p>Duas igrejas participarão da primeira fase de testes</p>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-         </div>
+        </div>
+    </div>
 
-          <!-- CONTACT -->
-         <div id="contact">
-            <div class="line">
-               <h2 class="section-title">Fale conosco</h2>
-               <div class="margin">
-                  <div class="s-12 m-12 l-3 hide-m hide-s margin-bottom right-align">
+    <!-- CONTACT -->
+    <div id="contact">
+        <div class="line">
+            <h2 class="section-title">Fale conosco</h2>
+            <div class="margin">
+                <div class="s-12 m-12 l-3 hide-m hide-s margin-bottom right-align">
                     <img src="{% static 'img/contact.jpg' %}" alt="">
-                  </div>
-                  <div class="s-12 m-12 l-4 margin-bottom right-align">
-                     <h3>Onde estamos</h3>
-                     <address>
+                </div>
+                <div class="s-12 m-12 l-4 margin-bottom right-align">
+                    <h3>Onde estamos</h3>
+                    <address>
                         <p><strong>Endereço:</strong> Av. Itatiaia, 1176 - Jardim Sumare, Ribeirão Preto - SP</p>
                         <p><strong>Cidade:</strong> Ribeirão Preto - SP</p>
                         <p><strong>E-mail:</strong> contato@erpgrace.com</p>
-                     </address>
-                     <br />
-                     <h3>Social</h3>
-                     <p><i class="icon-facebook icon"></i> <a href="https://www.facebook.com/pages/GraceERP">GraceERP</a></p>
-                     <p><i class="icon-sli-social-github"></i> <a href="https://github.com/GraceERP">GraceERP Repository</a></p>
-                     <p class="margin-bottom"><i class="icon-twitter icon"></i> <a href="https://twitter.com/GraceERP">@GraceERP</a></p>
-                  </div>
-                  <div class="s-12 m-12 l-5">
+                    </address>
+                    <br />
+                    <h3>Social</h3>
+                    <p><i class="icon-facebook icon"></i> <a href="https://www.facebook.com/pages/GraceERP">GraceERP</a></p>
+                    <p><i class="icon-sli-social-github"></i> <a href="https://github.com/GraceERP">GraceERP Repository</a></p>
+                    <p class="margin-bottom"><i class="icon-twitter icon"></i> <a href="https://twitter.com/GraceERP">@GraceERP</a></p>
+                </div>
+                <div class="s-12 m-12 l-5">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert success container">
+                                <p>{{ message }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     <h3>Envie suas dúvidas</h3>
                     <form class="customform" action="." method="post">
                         {% csrf_token %}
                         {% render_honeypot_field "phonenumber" %}
-                      <div class="s-12">
-                          {{ form.ur_email.errors}}
-                          {{ form.ur_email }}
-                      </div>
-                      <div class="s-12">
-                          {{ form.ur_name.errors }}
-                          {{ form.ur_name }}
-                      </div>
-                      <div class="s-12">
-                          {{ form.ur_message.errors }}
-                          {{ form.ur_message }}
-                      </div>
-                      <div class="s-12 m-12 l-4">
-                          <button class="color-btn" type="submit">Enviar</button>
-                      </div>
+                        <div class="s-12">
+                            {{ form.ur_email.errors}}
+                            {{ form.ur_email }}
+                        </div>
+                        <div class="s-12">
+                            {{ form.ur_name.errors }}
+                            {{ form.ur_name }}
+                        </div>
+                        <div class="s-12">
+                            {{ form.ur_message.errors }}
+                            {{ form.ur_message }}
+                        </div>
+                        <div class="s-12 m-12 l-4">
+                            <button class="color-btn" type="submit">Enviar</button>
+                        </div>
                     </form>
-                  </div>                
-               </div>
+                </div>
             </div>
-         </div>
+        </div>
+    </div>
 
-          <!-- MAP -->
-         <div id="map-block">
-             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.9529414575536!2d-47.81342048506456!3d-21.19402828590901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b9bedcf2c92df1%3A0x134d05e34a0238f1!2sAv.+Itatiaia%2C+1176+-+Jardim+Sumare%2C+Ribeir%C3%A3o+Preto+-+SP%2C+14025-240!5e0!3m2!1spt-BR!2sbr!4v1478003664699" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-         </div>
-      </section>
+    <!-- MAP -->
+    <div id="map-block">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.9529414575536!2d-47.81342048506456!3d-21.19402828590901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b9bedcf2c92df1%3A0x134d05e34a0238f1!2sAv.+Itatiaia%2C+1176+-+Jardim+Sumare%2C+Ribeir%C3%A3o+Preto+-+SP%2C+14025-240!5e0!3m2!1spt-BR!2sbr!4v1478003664699" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+</section>
 
-      <!-- FOOTER -->
-      <footer>
-         <div class="line">
-            <div class="s-12 l-6">
-               <p>Copyright 2017, Grace ERP </p>
-               <p>All contents are copyright. Do not use without permission.</p>
-            </div>
-            <div class="s-12 l-6">
-               <a class="right" href="http://www.elitedev.com.br" title="EliteDev">Design and coding<br> by EliteDev Team</a>
-            </div>
-         </div>
-      </footer>
-      <script type="text/javascript" src="{% static 'js/responsee.js' %}"></script>
-      <script type="text/javascript" src="{% static 'owl-carousel/owl.carousel.js' %}"></script>
-      <script type="text/javascript">
-         jQuery(document).ready(function($) {
-            var theme_slider = $("#owl-demo");
-            $("#owl-demo").owlCarousel({
-                navigation: false,
-                slideSpeed: 300,
-                paginationSpeed: 400,
-                autoPlay: 6000,
-                addClassActive: true,
-             // transitionStyle: "fade",
-                singleItem: true
-            });
-            $("#owl-demo2").owlCarousel({
-                slideSpeed: 300,
-                autoPlay: true,
-                navigation: true,
-                navigationText: ["&#xf007","&#xf006"],
-                pagination: false,
-                singleItem: true
-            });
-        
-            // Custom Navigation Events
-            $(".next-arrow").click(function() {
-                theme_slider.trigger('owl.next');
-            })
-            $(".prev-arrow").click(function() {
-                theme_slider.trigger('owl.prev');
-            })     
-        }); 
-      </script>
-   </body>
+<!-- FOOTER -->
+<footer>
+    <div class="line">
+        <div class="s-12 l-6">
+            <p>Copyright 2017, Grace ERP </p>
+            <p>All contents are copyright. Do not use without permission.</p>
+        </div>
+        <div class="s-12 l-6">
+            <a class="right" href="http://www.elitedev.com.br" title="EliteDev">Design and coding<br> by EliteDev Team</a>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="{% static 'js/responsee.js' %}"></script>
+<script type="text/javascript" src="{% static 'owl-carousel/owl.carousel.js' %}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        var theme_slider = $("#owl-demo");
+        $("#owl-demo").owlCarousel({
+            navigation: false,
+            slideSpeed: 300,
+            paginationSpeed: 400,
+            autoPlay: 6000,
+            addClassActive: true,
+            // transitionStyle: "fade",
+            singleItem: true
+        });
+        $("#owl-demo2").owlCarousel({
+            slideSpeed: 300,
+            autoPlay: true,
+            navigation: true,
+            navigationText: ["&#xf007","&#xf006"],
+            pagination: false,
+            singleItem: true
+        });
+
+        // Custom Navigation Events
+        $(".next-arrow").click(function() {
+            theme_slider.trigger('owl.next');
+        })
+        $(".prev-arrow").click(function() {
+            theme_slider.trigger('owl.prev');
+        })
+    });
+</script>
+</body>
 </html>

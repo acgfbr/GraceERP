@@ -1,5 +1,6 @@
 from django.core import mail
 from django.test import TestCase
+from django.shortcuts import resolve_url as r
 
 from grace.members_area.forms import RegisterForm
 from grace.members_area.models import Registration
@@ -8,7 +9,7 @@ from grace.members_area.models import Registration
 class RegisterFormGet(TestCase):
 
     def setUp(self):
-        self.response = self.client.get('/membros/')
+        self.response = self.client.get(r('members:members_area'))
 
     def test_has_form(self):
         """ Context must have subscription form"""
@@ -16,7 +17,7 @@ class RegisterFormGet(TestCase):
         self.assertIsInstance(form, RegisterForm)
 
 
-class RegisterPostValid(TestCase):
+class RegisterNewPostValid(TestCase):
 
     def setUp(self):
         data = dict(username='Hakory',
@@ -27,12 +28,12 @@ class RegisterPostValid(TestCase):
                     phone='16-98198-6747',
                     email='sir.vavo@gmail.com')
 
-        self.response = self.client.post('/success/', data)
+        self.response = self.client.post(r('members:register'), data)
 
     def test_post(self):
         """ Valid POST should redirect to /success/1/ """
         self.assertEqual(302, self.response.status_code)
-        self.assertRedirects(self.response, '/success/1/')
+        self.assertRedirects(self.response, r('members:success', 1))
 
     def test_send_register_confirmation_email(self):
         self.assertEqual(1, len(mail.outbox))
@@ -41,9 +42,9 @@ class RegisterPostValid(TestCase):
         self.assertTrue(Registration.objects.exists())
 
 
-class RegisterPostInvalid(TestCase):
+class RegisterNewPostInvalid(TestCase):
     def setUp(self):
-        self.response = self.client.post('/success/', {})
+        self.response = self.client.post(r('members:register'), {})
 
     def test_post(self):
         """ Invalid POST should not redirect """

@@ -1,5 +1,6 @@
 from django.core import mail
 from django.test import TestCase
+from django.shortcuts import resolve_url as r
 
 
 class RegisterMailValid(TestCase):
@@ -12,7 +13,7 @@ class RegisterMailValid(TestCase):
                     cpf='12345678901',
                     phone='16-98198-6747',
                     email='sir.vavo@gmail.com')
-        self.client.post('/success/', data)
+        self.client.post(r('members:register'), data)
         self.email = mail.outbox[0]
 
     def test_register_confirmation_enail_subject(self):

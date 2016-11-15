@@ -24,10 +24,10 @@
 <!-- Pen Title-->
 <div class="pen-title">
     <h1>Área de membros - ERP Grace</h1>
-    <a href="/"><img src="{% static 'img/logo_cloud.png' %}"/></a>
+    <a href="{% url 'home' %}"><img src="{% static 'img/logo_cloud.png' %}"/></a>
 </div>
 
-<div class="rerun"><a href="/membros/">Voltar para login</a></div>
+<div class="rerun"><a href="{% url 'members:members_area' %}">Voltar para login</a></div>
 {% if messages %}
     {% for message in messages %}
         <div class="alert success container">

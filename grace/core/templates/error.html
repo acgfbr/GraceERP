@@ -61,7 +61,7 @@
             <h1>{% block Error_Message %} Error message {% endblock Error_Message %}</h1>
             <h2>{% block Error_Description %} Error_Description {% endblock Error_Description %}</h2>
             <h2>{% block content %}{% endblock content %}</h2>
-            <a href="/"><img src="{% static 'img/logo_cloud.png' %}"/></a>
+            <a href="{% url 'home' %}"><img src="{% static 'img/logo_cloud.png' %}"/></a>
             <h3>Click na logo para voltar a página principal</h3>
         </div>
     </div>

@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.core import mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -5,16 +6,20 @@ from django.template.loader import render_to_string
 
 from grace.core.forms import HomeContactForm
 
-# Create your views here.
 
 def home(request):
 
     if request.method == 'POST':
-        return create(request)
-    else:
-        return new(request)
+        return create_form_contact(request)
 
-def create(request):
+    return empty_form(request)
+
+
+def empty_form(request):
+    return render(request, 'index.html', {'form': HomeContactForm()})
+
+
+def create_form_contact(request):
 
     form = HomeContactForm(request.POST)
 
@@ -29,11 +34,10 @@ def create(request):
                        ['contato@elitedev.com.br'],
                        'contact_email.txt',
                        form.cleaned_data)
-    return HttpResponseRedirect('/')
 
-
-def new(request):
-    return render(request, 'index.html', {'form': HomeContactForm()})
+    #Success
+    messages.success(request, 'E-mail enviado com sucesso!')
+    return HttpResponseRedirect('/#contact')
 
 
 def _send_contact_mail(subject, from_, to, template_email_name, context):

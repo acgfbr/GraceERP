@@ -24,13 +24,13 @@
 <!-- Pen Title-->
 <div class="pen-title">
     <h1>Área de membros - ERP Grace</h1>
-    <a href="/"><img src="{% static 'img/logo_cloud.png' %}"/></a>
+    <a href="{% url 'home' %}"><img src="{% static 'img/logo_cloud.png' %}"/></a>
 </div>
 
 <div class="rerun"><a href="">Voltar para login</a></div>
 {% if messages %}
     {% for message in messages %}
-        <div class="alert success container">
+        <div class="alert success container">-
             <p>{{ message }}</p>
         </div>
     {% endfor %}
@@ -39,7 +39,7 @@
     <div class="card"></div>
     <div class="card">
         <h1 class="title">Login</h1>
-        <form action="{% url 'LoginPage' %}" method="post">
+        <form action="{% url 'members:login' %}" method="post">
             {% csrf_token %}
             {% render_honeypot_field "user" %}
             <div class="input-container">
@@ -67,7 +67,7 @@
         <h1 class="title">Criar conta
             <div class="close"></div>
         </h1>
-        <form action="{% url 'RegisterPage' %}" method="post">
+        <form action="{% url 'members:register' %}" method="post">
             {% csrf_token %}
             {% render_honeypot_field "phonenumber" %}
             <div class="input-container">

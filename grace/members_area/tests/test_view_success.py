@@ -1,9 +1,10 @@
 from django.test import TestCase
+from django.shortcuts import resolve_url as r
 
 from grace.members_area.models import Registration
 
 
-class RegistrationDetailGet(TestCase):
+class RegistrationSuccessGet(TestCase):
 
     def setUp(self):
         self.obj = Registration.objects.create(username='Hakory',
@@ -12,7 +13,7 @@ class RegistrationDetailGet(TestCase):
                                                cpf='12345678901',
                                                phone='16-98198-6747',
                                                email='sir.vavo@gmail.com')
-        self.response = self.client.get('/success/{}/'.format(self.obj.pk))
+        self.response = self.client.get(r('members:success', self.obj.pk))
 
     def test_get(self):
         self.assertEqual(200, self.response.status_code)
@@ -39,5 +40,5 @@ class RegistrationDetailGet(TestCase):
 
 class RegistrationDetailNotFound(TestCase):
     def test_not_found(self):
-        response = self.client.get('/success/0/')
+        response = self.client.get(r('members:success', 0))
         self.assertEqual(404, response.status_code)
