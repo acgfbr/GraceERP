@@ -20,11 +20,11 @@ class RegisterFormGet(TestCase):
 class RegisterNewPostValid(TestCase):
 
     def setUp(self):
-        data = dict(username='Hakory',
+        data = dict(username='Django',
                     password='1234',
                     confirmpass='1234',
-                    name='Flame',
-                    cpf='12345678901',
+                    name='John Pironson',
+                    cpf='45445238857',
                     phone='16-98198-6747',
                     email='sir.vavo@gmail.com')
         self.response = self.client.post(r('members:register'), data)

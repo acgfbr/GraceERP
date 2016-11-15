@@ -9,6 +9,6 @@ class LoginFormGet(TestCase):
         self.response = self.client.get(r('members:members_area'))
 
     def test_has_form(self):
-        """ Context must have subscription form"""
+        """ Context must have login form"""
         form = self.response.context['login_form']
         self.assertIsInstance(form, LoginForm)

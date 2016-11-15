@@ -12,6 +12,7 @@ class Registration(models.Model):
     email = models.EmailField('E-mail', max_length=75)
     created_at = models.DateTimeField('Criado em', auto_now_add=True)
     hashId = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=False)
+    paid = models.BooleanField('pago', default=False)
 
     class Meta:
         verbose_name = 'registro'

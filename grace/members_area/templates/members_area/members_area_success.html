@@ -38,11 +38,10 @@
 <div class="container">
     <div class="card"></div>
     <div class="card ">
-        <h1 class="title alert-success">Obrigado pelo seu registro!</h1>
+        <h1 class="title alert-success">Obrigado {{ registration.name }} pelo seu registro!</h1>
         <p>Estes foram os dados que você nos forneceu em seu cadastro: </p>
             <div>
                 <li>Usuário: {{ registration.username }}</li>
-                <li>Password: {{ registration.password }}</li>
                 <li>Nome: {{ registration.name }}</li>
                 <li>CPF: {{ registration.cpf }}</li>
                 <li>Email: {{ registration.email }}</li>

@@ -7,9 +7,9 @@ from grace.members_area.models import Registration
 class RegistrationSuccessGet(TestCase):
 
     def setUp(self):
-        self.obj = Registration.objects.create(username='Hakory',
+        self.obj = Registration.objects.create(username='Django',
                                                password='1234',
-                                               name='Flame',
+                                               name='John Pironson',
                                                cpf='12345678901',
                                                phone='16-98198-6747',
                                                email='sir.vavo@gmail.com')

@@ -6,11 +6,11 @@ from django.shortcuts import resolve_url as r
 class RegisterMailValid(TestCase):
 
     def setUp(self):
-        data = dict(username='Hakory',
+        data = dict(username='Django',
                     password='1234',
                     confirmpass='1234',
-                    name='Flame',
-                    cpf='12345678901',
+                    name='John Pironson',
+                    cpf='45445238857',
                     phone='16-98198-6747',
                     email='sir.vavo@gmail.com')
         self.client.post(r('members:register'), data)
@@ -29,11 +29,11 @@ class RegisterMailValid(TestCase):
         self.assertEqual(expect, self.email.to)
 
     def test__register_confirmation_email_body(self):
-        contents = ['Hakory',
+        contents = ['Django',
                     '1234',
                     '1234',
-                    'Flame',
-                    '12345678901',
+                    'John Pironson',
+                    '45445238857',
                     '16-98198-6747',
                     'sir.vavo@gmail.com']
         for content in contents:

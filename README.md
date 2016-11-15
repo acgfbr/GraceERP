@@ -39,5 +39,34 @@ heroku config:push
 heroku config:set SECRE_KEY=`manage generate_secret_key`
 heroku config:set DEBUG=False
 # Configure o email
+git push heroku master --forc
+```
+
+## Como lidar com as migrações?
+
+##### Sempre que alterar um modelo mesmo sem impactar a estrutura da tabela, crie uma migração.
+
+### Em desenvolvimento:
+
+1. Execute os testes sem as migrações.
+2. Ao finalizar, antes de commitar, realize as migrações conforme os comandos a seguir.
+3. Execute o makemigrations.
+4. Execute o migrate.
+5. Rode os testes novamente, agora com as migrações.
+
+```console
+python manage.py test --nomigrations
+python manage.py makemigrations
+python manage.py migrate
+python manage.py test
+```
+
+### Em produção(Heroku):
+
+1. Realize o commit e push normalmente.
+2. Realize a migração.
+
+```console
 git push heroku master --force
+heroku run python manage.py migrate
 ```

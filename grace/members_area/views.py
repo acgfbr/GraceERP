@@ -38,7 +38,7 @@ class LoginFormView(FormView):
         if not login_form.is_valid():
             return self.render_to_response(self.get_context_data(login_form=login_form, register_form=register_form))
 
-        return HttpResponseRedirect(r('members:members_area'))
+        return HttpResponseRedirect(r('members:login'))
 
 
 class RegisterFormView(FormView):

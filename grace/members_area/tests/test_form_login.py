@@ -8,7 +8,7 @@ class LoginFormTest(TestCase):
         self.form = LoginForm()
 
     def test_login_form_has_fields(self):
-        """ Register form must have 2 fields """
+        """ Login form must have 2 fields """
         expected = ['username',
                     'password']
         self.assertSequenceEqual(expected, list(self.form.fields))
