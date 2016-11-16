@@ -12,9 +12,9 @@ class LoginForm(forms.Form):
 
 class RegisterForm(forms.ModelForm):
 
-    cnpj = BRCNPJField(label_suffix='', label='CNPJ', required=False)
-    cpf = BRCPFField(label_suffix='', label='CPF', required=False)
-    password = forms.CharField(label_suffix='', label='Senha', max_length=36, widget=forms.PasswordInput, required=True)
+    cnpj = BRCNPJField(label='CNPJ', required=False)
+    cpf = BRCPFField(label='CPF', required=False)
+    password = forms.CharField(label='Senha', max_length=36, widget=forms.PasswordInput, required=True)
 
     class Meta:
         model = Registration
