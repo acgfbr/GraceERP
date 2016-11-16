@@ -10,6 +10,7 @@ class RegistrationSuccessGet(TestCase):
         self.obj = Registration.objects.create(username='Django',
                                                password='1234',
                                                name='John Pironson',
+                                               cnpj='78.543.261/0001-45',
                                                cpf='12345678901',
                                                phone='16-98198-6747',
                                                email='sir.vavo@gmail.com')
@@ -30,6 +31,7 @@ class RegistrationSuccessGet(TestCase):
         contents = (self.obj.username,
                     self.obj.password,
                     self.obj.name,
+                    self.obj.cnpj,
                     self.obj.cpf,
                     self.obj.phone,
                     self.obj.email)

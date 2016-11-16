@@ -17,8 +17,8 @@ class MemberAreaGet(TestCase):
     def test_html(self):
         """Html must contain input tags"""
         tags = (('<form', 2),
-                ('<input', 12),
-                ('type="text"', 7),
+                ('<input', 13),
+                ('type="text"', 8),
                 ('type="password"', 2),
                 ('type="email"', 1),
                 ('<button', 2))

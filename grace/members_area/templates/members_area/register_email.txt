@@ -8,6 +8,7 @@ em seu cadastro:
 Usuário: {{ registration.username }}
 Password: {{ registration.password }}
 Nome: {{ registration.name }}
+CNPJ: {{ registration.cnpj }}
 CPF: {{ registration.cpf }}
 Email: {{ registration.email }}
 Telefone: {{ registration.phone }}

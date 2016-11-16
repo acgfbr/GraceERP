@@ -6,11 +6,12 @@ from grace.members_area.models import Registration
 class RegistrationModelTest(TestCase):
     def setUp(self):
         self.obj = Registration(username='Django',
-                       password='1234',
-                       name='John Pironson',
-                       cpf='45445238857',
-                       phone='16-98198-6747',
-                       email='sir.vavo@gmail.com')
+                                password='1234',
+                                name='John Pironson',
+                                cnpj='78.543.261/0001-45',
+                                cpf='45445238857',
+                                phone='16-98198-6747',
+                                email='john.pironson@zuckibergson.com')
         self.obj.save()
 
     def test_create(self):

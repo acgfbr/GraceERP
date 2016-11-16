@@ -12,7 +12,7 @@ class RegistrationModelAdminTest(TestCase):
                                     name='John Pironson',
                                     cpf='12345678901',
                                     phone='16-98198-6747',
-                                    email='sir.vavo@gmail.com')
+                                    email='john.pironson@zuckibergson.com')
 
         self.model_admin = RegistrationModelAdmin(Registration, admin.site)
 

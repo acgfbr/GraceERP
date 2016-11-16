@@ -26,8 +26,8 @@
     <h1>Área de membros - ERP Grace</h1>
     <a href="{% url 'home' %}"><img src="{% static 'img/logo_cloud.png' %}"/></a>
 </div>
-
 <div class="rerun"><a href="">Voltar para login</a></div>
+
 {% if messages %}
     {% for message in messages %}
         <div class="alert success container">-
@@ -36,6 +36,7 @@
     {% endfor %}
 {% endif %}
 <div class="container">
+    {{ register_form.non_field_errors }}
     <div class="card"></div>
     <div class="card">
         <h1 class="title">Login</h1>
@@ -89,6 +90,13 @@
                 {{ register_form.name.errors }}
                 {{ register_form.name }}
                 {{ register_form.name.label_tag }}
+                <div class="bar"></div>
+            </div>
+                <div class="input-container">
+                <label for="{{ form.cppj.id_for_label }}"></label>
+                {{ register_form.cnpj.errors }}
+                {{ register_form.cnpj }}
+                {{ register_form.cnpj.label_tag }}
                 <div class="bar"></div>
             </div>
             <div class="input-container">

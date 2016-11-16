@@ -1,5 +1,8 @@
 from django import forms
-from localflavor.br.forms import BRCPFField
+from django.core.exceptions import ValidationError
+from localflavor.br.forms import BRCPFField, BRCNPJField
+
+from grace.members_area.models import Registration
 
 
 class LoginForm(forms.Form):
@@ -7,15 +10,25 @@ class LoginForm(forms.Form):
     password = forms.CharField(label_suffix='', label='Senha', max_length=36, widget=forms.PasswordInput, required=True)
 
 
-class RegisterForm(forms.Form):
-    username = forms.CharField(label_suffix='', label='Nome de usuário', max_length=51, required=True)
+class RegisterForm(forms.ModelForm):
+
+    cnpj = BRCNPJField(label_suffix='', label='CNPJ', required=False)
+    cpf = BRCPFField(label_suffix='', label='CPF', required=False)
     password = forms.CharField(label_suffix='', label='Senha', max_length=36, widget=forms.PasswordInput, required=True)
-    name = forms.CharField(label_suffix='', label='Nome', max_length=100, required=True)
-    cpf = BRCPFField(label_suffix='')
-    phone = forms.CharField(label_suffix='', label='Telefone', max_length=20, required=True)
-    email = forms.EmailField(label_suffix='', label='Email', max_length=75, required=True)
+
+    class Meta:
+        model = Registration
+        fields = ['username', 'password', 'name', 'cnpj', 'cpf', 'phone', 'email']
 
     def clean_name(self):
         name = self.cleaned_data['name']
         words = [w.capitalize() for w in name.split()]
         return ' '.join(words)
+
+    def clean(self):
+        self.cleaned_data = super().clean()
+        if not self.cleaned_data.get('phone') and not self.cleaned_data.get('email'):
+            raise ValidationError('Informe seu telefone ou e-mail.')
+        if not self.cleaned_data.get('cpf') and not self.cleaned_data.get('cnpj'):
+            raise ValidationError('Informe seu cpf ou cnpj.')
+        return self.cleaned_data

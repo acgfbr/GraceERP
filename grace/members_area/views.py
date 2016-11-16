@@ -54,7 +54,7 @@ class RegisterFormView(FormView):
         if not register_form.is_valid():
             return self.render_to_response(self.get_context_data(register_form=register_form, login_form=login_form))
 
-        registration = Registration.objects.create(**register_form.cleaned_data)
+        registration = register_form.save()
 
         # Send email
         _send_register_mail('Confirmação de registro',

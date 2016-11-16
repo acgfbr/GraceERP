@@ -24,9 +24,10 @@ class RegisterNewPostValid(TestCase):
                     password='1234',
                     confirmpass='1234',
                     name='John Pironson',
+                    cnpj='78.543.261/0001-45',
                     cpf='45445238857',
                     phone='16-98198-6747',
-                    email='sir.vavo@gmail.com')
+                    email='john.pironson@zuckibergson.com')
         self.response = self.client.post(r('members:register'), data)
         self.hashId = Registration.objects.first().hashId
 
@@ -64,3 +65,13 @@ class RegisterNewPostInvalid(TestCase):
     def test_dont_save_registration(self):
         self.assertFalse(Registration.objects.exists())
 
+
+class TemplateRegressionTest(TestCase):
+    def test_template_has_non_field_errors(self):
+        invalid_data = dict(username='Django',
+                            password='1234',
+                            confirmpass='1234',
+                            name='John Pironson')
+        response = self.client.post(r('members:register'), invalid_data)
+
+        self.assertContains(response, '<ul class="errorlist nonfield">')
