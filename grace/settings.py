@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'honeypot',
     'grace.core',
     'grace.members_area.apps.RegistrationsConfig',
+    'grace.arduino.apps.AutomationConfig',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'grace.arduino.context_processors.settings',
             ],
         },
     },

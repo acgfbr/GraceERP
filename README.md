@@ -36,7 +36,7 @@ python manage.py test
 ```console
 heroku create minhainstancia
 heroku config:push
-heroku config:set SECRE_KEY=`manage generate_secret_key`
+heroku config:set SECRET_KEY=`python3 manage.py generate_secret_key`
 heroku config:set DEBUG=False
 # Configure o email
 git push heroku master --forc
