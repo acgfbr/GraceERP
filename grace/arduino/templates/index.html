@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
     <title>{{ author }}'s app</title>
-</head>
+   <style>
+     .button{
+      background-color: DeepSkyBlue;
+      border-radius: 8px;
+     color: white;
+     padding: 10px 20px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;
+     }
 
-<body>
-<h2>Light Sensor Reading {{ value }}!</h2>
+     .button:hover {background-color: DodgerBlue ;}
 
-<form  action="/" method="post">
-    <p><input type="submit" name="yellow" value="Turn On Yellow"> </p>
-    <p><input type="submit" name="yellow" value="Turn Off Yellow"> </p>
+    .button:active {
+     background-color: DodgerBlue  ;
+     box-shadow: 0 5px #666;
+     transform: translateY(4px);
+    }
+  </style>
+  </head>
 
+  <body>
 
-</form>
+    <h2>Light Sensor Reading {{ value }}!</h2>
 
-</body>
+    <form  action="/" method="post">
+    <p><input type="submit" name="yellow" value="Turn On Yellow" class="button"> </p>
+    <p><input type="submit" name="yellow" value="Turn Off Yellow" class="button"> </p>
+    </form>
+    <img src="https://www.portaldoholanda.com.br/sites/default/files/bruna_marquezine_mulher_mais_sexy_do_mundo_vip_ph_20.jpg">
+  </body>
 </html>
